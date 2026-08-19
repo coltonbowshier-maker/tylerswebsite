@@ -37,8 +37,8 @@ jobs:
       - name: Upload site
         uses: actions/upload-pages-artifact@v3
         with:
-          # The real site lives in the Website/ subfolder; publish that as the root.
-          path: "./Website"
+          # The site lives at the repo root; publish everything as-is.
+          path: "."
 
       - name: Deploy to GitHub Pages
         id: deployment
