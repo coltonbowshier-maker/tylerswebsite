@@ -1,0 +1,6 @@
+# Work in progress — keep search engines out until launch.
+# To go live: change "Disallow: /" to "Allow: /" (or delete this file)
+# and remove the <meta name="robots" content="noindex, nofollow"> tags
+# from index.html and b/index.html.
+User-agent: *
+Disallow: /
