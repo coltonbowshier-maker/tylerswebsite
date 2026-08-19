@@ -1,36 +1,43 @@
-# Tyler's Website
+# Tyler Willis — Website
 
-Custom static website hosted **free** on GitHub Pages, using a domain registered
-through Squarespace. Updates are made by editing files in this repo (by hand or by
-asking Claude) — every push to `main` redeploys the live site automatically.
+Custom static website hosted **free** on GitHub Pages, using the domain
+`tylerwillispro.com` (registered through Squarespace). Updates are made by editing
+files in this repo (by hand or by asking Claude) — every push to the live branch
+redeploys the site automatically.
 
 ## How hosting works here
 
 - **Host:** GitHub Pages — $0/month, free HTTPS.
-- **Domain:** registered at Squarespace, pointed at GitHub Pages via DNS.
-- **Deploy:** the workflow in `.github/workflows/deploy.yml` publishes the repo
-  root on every push to `main`. No build step — it serves the HTML/CSS/JS as-is.
+- **Domain:** `tylerwillispro.com`, registered at Squarespace, pointed at GitHub
+  Pages via DNS.
+- **Site files:** live in the `Website/` folder.
+- **Deploy:** `.github/workflows/deploy.yml` publishes the **`Website/`** folder on
+  every push. No build step — it serves the HTML/CSS/JS as-is.
 
 ## Updating the site
 
-1. Change the files (or ask Claude to).
-2. Commit and push to `main`.
+1. Change the files in `Website/` (or ask Claude to).
+2. Commit and push.
 3. Wait ~30 seconds. The live site updates itself.
 
-That's it. There is no Squarespace editor to log into and no manual file upload.
+There is no Squarespace editor to log into and no manual file upload.
 
 ## One-time setup checklist
 
-- [ ] Add the real website files to this repo (replace `index.html`).
 - [ ] In **Settings → Pages**, set **Source** to **GitHub Actions**.
-- [ ] Add your custom domain under **Settings → Pages → Custom domain** (this
-      creates a `CNAME` file automatically) and enable **Enforce HTTPS**.
-- [ ] In **Squarespace → your domain → DNS settings**, add the records GitHub
-      shows you:
+- [ ] Confirm the custom domain `tylerwillispro.com` is set and **Enforce HTTPS**
+      is enabled (the `Website/CNAME` file holds the domain).
+- [ ] In **Squarespace → tylerwillispro.com → DNS settings**, add:
   - Four `A` records for the apex domain (`@`) pointing to GitHub Pages:
     `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
   - One `CNAME` record for `www` pointing to `coltonbowshier-maker.github.io`
 - [ ] Wait for DNS to propagate (minutes to a few hours), then confirm HTTPS.
+
+## Still to swap before launch (from the site's own notes)
+
+- Replace the placeholder email `hello@tylerwillis.homes` in `Website/index.html`.
+- Swap in real St. Petersburg photography (currently a Portland stand-in).
+- Replace the before/after slider's stand-in "before" image when available.
 
 ## Cost summary
 

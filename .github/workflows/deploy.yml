@@ -7,6 +7,7 @@ name: Deploy site to GitHub Pages
 on:
   push:
     branches:
+      - claude/website-hosting-updates-w77dkm
       - main
   workflow_dispatch:
 
@@ -36,7 +37,8 @@ jobs:
       - name: Upload site
         uses: actions/upload-pages-artifact@v3
         with:
-          path: "."
+          # The real site lives in the Website/ subfolder; publish that as the root.
+          path: "./Website"
 
       - name: Deploy to GitHub Pages
         id: deployment
