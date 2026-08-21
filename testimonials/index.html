@@ -229,10 +229,15 @@
     <!-- Right: the form -->
     <div class="tst-form-wrap">
       <div class="tst-msg ok" id="tst-preview-note">
-        <strong>Preview mode.</strong> The form isn't connected to a backend yet — add your endpoint URL in this page's script to start collecting submissions. (See the setup notes committed alongside this file.)
+        <strong>Preview mode.</strong> The form isn't connected yet — add your Web3Forms access key to start collecting submissions. (See <code>testimonials/SETUP-web3forms.md</code>.)
       </div>
 
       <form id="tst-form" novalidate>
+        <!-- Web3Forms config: paste your access key below (from web3forms.com). -->
+        <input type="hidden" name="access_key" value="PASTE_YOUR_WEB3FORMS_ACCESS_KEY">
+        <input type="hidden" name="subject" value="New testimonial — tylerwillispro.com">
+        <input type="hidden" name="from_name" value="Tyler Willis Website">
+
         <div class="tst-field">
           <label for="f-name">Your name <span class="req">*</span></label>
           <input type="text" id="f-name" name="name" autocomplete="name" required>
@@ -258,10 +263,11 @@
           <input type="email" id="f-email" name="email" placeholder="you@example.com" autocomplete="email">
         </div>
 
-        <!-- honeypot: hidden from people, catches bots -->
+        <!-- honeypots: hidden from people, catch bots (website = custom, botcheck = Web3Forms built-in) -->
         <div class="tst-hp" aria-hidden="true">
           <label for="f-website">Website</label>
           <input type="text" id="f-website" name="website" tabindex="-1" autocomplete="off">
+          <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off">
         </div>
 
         <div class="tst-consent">
@@ -297,25 +303,23 @@
 
 <script>
   /* ============================================================
-     TESTIMONIAL FORM — backend hookup
+     TESTIMONIAL FORM — Web3Forms backend
      ------------------------------------------------------------
-     1. Deploy the backend (see testimonials/SETUP-google-sheet.md
-        committed next to this file), then paste its URL below.
-     2. OPAQUE_SUBMIT:
-          true  → Google Apps Script (can't read the response;
-                  we optimistically show "thank you")
-          false → Formspree / Web3Forms / Cloudflare Worker
-                  (returns JSON + CORS; real success/error)
+     To connect: paste your Web3Forms access key into the hidden
+     <input name="access_key"> field in the form above. Get a key
+     free at https://web3forms.com (enter your email; they send it).
+     Web3Forms returns JSON + CORS, so success/failure is real.
      ============================================================ */
-  const ENDPOINT = "PASTE_YOUR_ENDPOINT_URL_HERE";
-  const OPAQUE_SUBMIT = true;
+  const ENDPOINT = "https://api.web3forms.com/submit";
+  const OPAQUE_SUBMIT = false;
 
   const form   = document.getElementById('tst-form');
   const submit = document.getElementById('tst-submit');
   const errBox = document.getElementById('tst-error');
   const thanks = document.getElementById('tst-thanks');
   const previewNote = document.getElementById('tst-preview-note');
-  const connected = ENDPOINT && ENDPOINT !== "PASTE_YOUR_ENDPOINT_URL_HERE";
+  const keyEl = form.querySelector('[name="access_key"]');
+  const connected = !!(keyEl && keyEl.value && keyEl.value.indexOf('PASTE_YOUR') === -1);
 
   if (connected) previewNote.classList.remove('show');
   else previewNote.classList.add('show');
@@ -333,7 +337,7 @@
     if (!form.checkValidity()) { form.reportValidity(); return; }
 
     if (!connected) {
-      showError("The form isn't connected to a backend yet, so nothing was sent. Add your endpoint URL to start collecting.");
+      showError("The form isn't connected yet, so nothing was sent. Add your Web3Forms access key to start collecting.");
       return;
     }
 

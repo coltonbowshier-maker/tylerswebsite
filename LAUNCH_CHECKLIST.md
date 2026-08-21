@@ -46,8 +46,8 @@ Legend: 🔴 blocker · 🟡 should-do · 🟢 nice-to-have · ✅ done
 
 ## 🔴 Testimonials — before sharing the link widely
 
-- [ ] **Connect the form backend.** Deploy the Google Sheet script
-      (`testimonials/SETUP-google-sheet.md`) and send the URL so submissions are captured.
+- [ ] **Connect the form backend.** Add your Web3Forms access key
+      (`testimonials/SETUP-web3forms.md`) so submissions are captured.
 - [ ] Add a **real photo of Tyler** to the testimonials page (drop it at
       `/assets/img/web/tyler-portrait.jpg`).
 
