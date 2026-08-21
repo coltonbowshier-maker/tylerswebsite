@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Share Your Experience — Tyler Willis</title>
+<meta name="description" content="Tell us what it was like to work with Tyler Willis. Your words help future clients and partners know what to expect.">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/styles.css">
+<style>
+  /* ---- Testimonial intake — scoped styles, built on the Design A tokens ---- */
+  .tst-hero {
+    position: relative;
+    min-height: 52vh;
+    display: flex;
+    align-items: flex-end;
+    padding: calc(var(--wip-h) + 5rem) var(--pad) clamp(2.5rem, 6vw, 4.5rem);
+    overflow: hidden;
+  }
+  .tst-hero-img {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+  }
+  .tst-hero-scrim {
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(33,30,25,0.34) 0%, rgba(33,30,25,0.20) 40%, rgba(33,30,25,0.62) 100%);
+  }
+  .tst-hero-inner { position: relative; max-width: 40rem; color: var(--cream); }
+  .tst-hero h1 {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: clamp(2.4rem, 6vw, 4rem);
+    line-height: 1.04;
+    letter-spacing: -0.015em;
+    margin: 0.7rem 0 0.9rem;
+  }
+  .tst-hero h1 em { font-style: italic; }
+  .tst-hero-sub { font-size: clamp(1.02rem, 1.6vw, 1.2rem); line-height: 1.65; color: rgba(245,241,234,0.9); max-width: 34em; }
+
+  .tst-main {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: clamp(3rem, 7vw, 5.5rem) var(--pad);
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: clamp(2.5rem, 5vw, 4.5rem);
+    align-items: start;
+  }
+  @media (max-width: 820px) { .tst-main { grid-template-columns: 1fr; gap: 2.5rem; } }
+
+  /* ---- Left rail: portrait + the ask ---- */
+  .tst-aside { position: sticky; top: calc(var(--wip-h) + 5.5rem); }
+  @media (max-width: 820px) { .tst-aside { position: static; } }
+
+  .tst-portrait { margin-bottom: 1.8rem; }
+  .tst-portrait-ph {
+    aspect-ratio: 4 / 5;
+    border-radius: 14px;
+    background:
+      radial-gradient(120% 100% at 30% 20%, var(--olive) 0%, var(--olive-deep) 90%);
+    display: grid;
+    place-items: center;
+    color: rgba(245,241,234,0.92);
+    font-family: var(--serif);
+    font-size: clamp(3rem, 7vw, 4.5rem);
+    letter-spacing: 0.04em;
+    box-shadow: 0 18px 40px rgba(33,30,25,0.18);
+  }
+  .tst-portrait img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 14px; display: block; box-shadow: 0 18px 40px rgba(33,30,25,0.18); }
+  .tst-portrait figcaption {
+    font-family: var(--sans);
+    font-size: 0.82rem;
+    letter-spacing: 0.02em;
+    color: var(--ink-2);
+    margin-top: 0.8rem;
+  }
+  .tst-portrait figcaption b { color: var(--ink); font-weight: 600; }
+
+  .tst-ask h2 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 1.6rem;
+    line-height: 1.15;
+    margin-bottom: 0.7rem;
+  }
+  .tst-ask p { color: var(--ink-2); line-height: 1.7; font-size: 0.98rem; margin-bottom: 0.9rem; }
+  .tst-example {
+    border-left: 2px solid var(--terracotta);
+    padding: 0.3rem 0 0.3rem 1.1rem;
+    margin: 1.2rem 0 0;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.55;
+    color: var(--ink);
+  }
+  .tst-example span { display: block; font-family: var(--sans); font-style: normal; font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-2); margin-bottom: 0.6rem; }
+
+  /* ---- Form ---- */
+  .tst-form-wrap {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: clamp(1.6rem, 3.5vw, 2.6rem);
+    box-shadow: 0 1px 0 var(--line);
+  }
+  .tst-field { display: grid; gap: 0.4rem; margin-bottom: 1.3rem; }
+  .tst-field label {
+    font-family: var(--sans);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+  .tst-field .req { color: var(--terracotta); }
+  .tst-field .hint { font-family: var(--sans); font-size: 0.82rem; font-weight: 400; letter-spacing: 0; text-transform: none; color: var(--ink-2); }
+  .tst-field input,
+  .tst-field textarea {
+    font-family: var(--sans);
+    font-size: 1rem;
+    color: var(--ink);
+    background: var(--card, #fff);
+    border: 1px solid var(--line);
+    border-radius: 9px;
+    padding: 0.75rem 0.85rem;
+    width: 100%;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .tst-field textarea { min-height: 150px; resize: vertical; line-height: 1.6; }
+  .tst-field input:focus,
+  .tst-field textarea:focus {
+    outline: none;
+    border-color: var(--olive);
+    box-shadow: 0 0 0 3px rgba(103,112,81,0.15);
+  }
+  .tst-field input::placeholder,
+  .tst-field textarea::placeholder { color: rgba(89,83,74,0.55); }
+
+  .tst-consent { display: flex; gap: 0.7rem; align-items: flex-start; margin: 0.4rem 0 1.5rem; }
+  .tst-consent input { margin-top: 0.2rem; width: 18px; height: 18px; accent-color: var(--olive); flex: none; }
+  .tst-consent label { font-family: var(--sans); font-size: 0.9rem; line-height: 1.5; color: var(--ink-2); }
+
+  .tst-hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+  .tst-submit {
+    font-family: var(--sans);
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--cream);
+    background: var(--terracotta);
+    border: 1px solid var(--terracotta);
+    padding: 0.9rem 1.6rem;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background 0.25s var(--ease), transform 0.15s;
+  }
+  .tst-submit:hover { background: #9a5940; }
+  .tst-submit:disabled { opacity: 0.6; cursor: default; }
+
+  .tst-note { font-size: 0.82rem; color: var(--ink-2); margin-top: 1rem; line-height: 1.5; }
+
+  /* success / error panels */
+  .tst-msg { display: none; border-radius: 12px; padding: 1.1rem 1.2rem; font-size: 0.95rem; line-height: 1.55; }
+  .tst-msg.show { display: block; }
+  .tst-msg.ok { background: rgba(103,112,81,0.12); border: 1px solid rgba(103,112,81,0.35); color: var(--olive-deep); }
+  .tst-msg.err { background: rgba(176,104,74,0.1); border: 1px solid rgba(176,104,74,0.4); color: #8a4d34; margin-top: 1rem; }
+  .tst-thanks { display: none; }
+  .tst-thanks.show { display: block; text-align: center; padding: 1rem 0; }
+  .tst-thanks h2 { font-family: var(--serif); font-weight: 400; font-size: 1.8rem; margin-bottom: 0.6rem; }
+  .tst-thanks p { color: var(--ink-2); line-height: 1.6; }
+  .tst-thanks a { color: var(--terracotta); text-decoration: none; font-weight: 600; }
+</style>
+</head>
+<body>
+
+<div class="wip-bar" role="status">
+  <span class="wip-dot" aria-hidden="true"></span>
+  <span>Private preview — this site is a work in progress</span>
+</div>
+
+<header class="nav scrolled" id="nav">
+  <a class="nav-brand" href="/">Tyler&nbsp;Willis</a>
+  <nav class="nav-links" aria-label="Primary">
+    <a href="/#work">Work</a>
+    <a href="/#approach">Approach</a>
+    <a href="/#places">Places</a>
+    <a href="/#about">About</a>
+  </nav>
+  <a class="nav-cta" href="/#contact">Back to site</a>
+</header>
+
+<main id="top">
+
+  <!-- ============ HEADER ============ -->
+  <section class="tst-hero">
+    <img class="tst-hero-img" src="/assets/img/web/living-corner-1600.jpg" alt="Sunlit corner of a renovated great room" fetchpriority="high">
+    <div class="tst-hero-scrim"></div>
+    <div class="tst-hero-inner">
+      <p class="kicker light">Client testimonials</p>
+      <h1>In your <em>words.</em></h1>
+      <p class="tst-hero-sub">If you've worked with Tyler — as a client, a capital partner, or a trade — a few honest sentences from you tell the next person more than we ever could about ourselves.</p>
+    </div>
+  </section>
+
+  <!-- ============ INTAKE ============ -->
+  <div class="tst-main">
+
+    <!-- Left: portrait + the ask -->
+    <aside class="tst-aside">
+      <figure class="tst-portrait">
+        <!-- Replace this <div> with: <img src="/assets/img/web/tyler-portrait.jpg" alt="Tyler Willis"> once the real photo is added. -->
+        <div class="tst-portrait-ph" role="img" aria-label="Photo of Tyler Willis (placeholder)">TW</div>
+        <figcaption><b>Tyler Willis</b> · Founder — Residential Design &amp; Development</figcaption>
+      </figure>
+
+      <div class="tst-ask">
+        <h2>What we're after</h2>
+        <p>Keep it real and specific. One or two moments that stuck with you say more than a page of praise — the detail he caught, how the project actually felt, whether the result matched the promise.</p>
+        <p>A sentence on how long you've known him or what you worked on together helps too.</p>
+        <blockquote class="tst-example">
+          <span>For example</span>
+          "I've worked with Tyler for the past four years, and his attention to detail is impeccable. He caught things our last contractor never would have — and the house came back better than we pictured it."
+        </blockquote>
+      </div>
+    </aside>
+
+    <!-- Right: the form -->
+    <div class="tst-form-wrap">
+      <div class="tst-msg ok" id="tst-preview-note">
+        <strong>Preview mode.</strong> The form isn't connected to a backend yet — add your endpoint URL in this page's script to start collecting submissions. (See the setup notes committed alongside this file.)
+      </div>
+
+      <form id="tst-form" novalidate>
+        <div class="tst-field">
+          <label for="f-name">Your name <span class="req">*</span></label>
+          <input type="text" id="f-name" name="name" autocomplete="name" required>
+        </div>
+
+        <div class="tst-field">
+          <label for="f-relationship">How you worked with Tyler <span class="req">*</span> <span class="hint">— client, partner, trade…</span></label>
+          <input type="text" id="f-relationship" name="relationship" placeholder="e.g. Client — Lake Oswego, 2024  ·  Capital partner  ·  Tile setter" required>
+        </div>
+
+        <div class="tst-field">
+          <label for="f-location">Location <span class="hint">— optional, city &amp; state</span></label>
+          <input type="text" id="f-location" name="location" placeholder="Portland, OR" autocomplete="address-level2">
+        </div>
+
+        <div class="tst-field">
+          <label for="f-testimonial">Your testimonial <span class="req">*</span></label>
+          <textarea id="f-testimonial" name="testimonial" placeholder="A few honest sentences about working with Tyler…" required></textarea>
+        </div>
+
+        <div class="tst-field">
+          <label for="f-email">Email <span class="hint">— optional, only so we can reach you if we feature it</span></label>
+          <input type="email" id="f-email" name="email" placeholder="you@example.com" autocomplete="email">
+        </div>
+
+        <!-- honeypot: hidden from people, catches bots -->
+        <div class="tst-hp" aria-hidden="true">
+          <label for="f-website">Website</label>
+          <input type="text" id="f-website" name="website" tabindex="-1" autocomplete="off">
+        </div>
+
+        <div class="tst-consent">
+          <input type="checkbox" id="f-consent" name="consent" required>
+          <label for="f-consent">I'm happy for Tyler Willis to use this testimonial, along with my first name and how I worked with him, on the website and in marketing. <span class="req">*</span></label>
+        </div>
+
+        <button type="submit" class="tst-submit" id="tst-submit">Send testimonial</button>
+        <div class="tst-msg err" id="tst-error"></div>
+        <p class="tst-note">We read every one. If we'd like to feature yours, we'll reach out first — nothing goes public without your say-so.</p>
+      </form>
+
+      <div class="tst-thanks" id="tst-thanks">
+        <h2>Thank you.</h2>
+        <p>That means a lot — we've got it, and we read every single one.<br><a href="/">Back to the site →</a></p>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<footer class="footer">
+  <p class="footer-mark" aria-hidden="true">Tyler&nbsp;Willis</p>
+  <div class="footer-row">
+    <span>© 2026 Tyler Willis — Residential Design &amp; Development</span>
+    <span class="footer-links">
+      <a href="/#work">Work</a>
+      <a href="/#partners">Partners</a>
+      <a href="mailto:hello@tylerwillis.homes">Email</a>
+    </span>
+  </div>
+</footer>
+
+<script>
+  /* ============================================================
+     TESTIMONIAL FORM — backend hookup
+     ------------------------------------------------------------
+     1. Deploy the backend (see testimonials/SETUP-google-sheet.md
+        committed next to this file), then paste its URL below.
+     2. OPAQUE_SUBMIT:
+          true  → Google Apps Script (can't read the response;
+                  we optimistically show "thank you")
+          false → Formspree / Web3Forms / Cloudflare Worker
+                  (returns JSON + CORS; real success/error)
+     ============================================================ */
+  const ENDPOINT = "PASTE_YOUR_ENDPOINT_URL_HERE";
+  const OPAQUE_SUBMIT = true;
+
+  const form   = document.getElementById('tst-form');
+  const submit = document.getElementById('tst-submit');
+  const errBox = document.getElementById('tst-error');
+  const thanks = document.getElementById('tst-thanks');
+  const previewNote = document.getElementById('tst-preview-note');
+  const connected = ENDPOINT && ENDPOINT !== "PASTE_YOUR_ENDPOINT_URL_HERE";
+
+  if (connected) previewNote.classList.remove('show');
+  else previewNote.classList.add('show');
+
+  function showError(msg) {
+    errBox.textContent = msg;
+    errBox.classList.add('show');
+  }
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    errBox.classList.remove('show');
+
+    // native validity (required fields, email format, consent)
+    if (!form.checkValidity()) { form.reportValidity(); return; }
+
+    if (!connected) {
+      showError("The form isn't connected to a backend yet, so nothing was sent. Add your endpoint URL to start collecting.");
+      return;
+    }
+
+    submit.disabled = true;
+    submit.textContent = 'Sending…';
+    const data = new FormData(form);
+
+    try {
+      if (OPAQUE_SUBMIT) {
+        await fetch(ENDPOINT, { method: 'POST', body: data, mode: 'no-cors' });
+        form.style.display = 'none';
+        thanks.classList.add('show');
+      } else {
+        const res = await fetch(ENDPOINT, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } });
+        if (res.ok) {
+          form.style.display = 'none';
+          thanks.classList.add('show');
+        } else {
+          throw new Error('Server returned ' + res.status);
+        }
+      }
+    } catch (err) {
+      submit.disabled = false;
+      submit.textContent = 'Send testimonial';
+      showError("Something went wrong sending that — please try again, or email us directly at hello@tylerwillis.homes.");
+    }
+  });
+</script>
+</body>
+</html>
