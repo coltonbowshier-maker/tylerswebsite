@@ -39,8 +39,17 @@ Legend: 🔴 blocker · 🟡 should-do · 🟢 nice-to-have · ✅ done
 - [ ] Remove **`noindex, nofollow`** meta tags from `index.html` and `b/index.html`.
 - [ ] Open **`robots.txt`** back up (change `Disallow: /` to `Allow: /`, or delete the file).
 - [ ] Confirm **Enforce HTTPS** is enabled in GitHub → Settings → Pages.
+- [ ] Remove the **preview password gate** (`js/preview-gate.js` + the snippet in
+      `index.html` and `b/index.html`) — unless you want to keep it during a soft launch.
 
-*(All four of these are one request away — just say "launch it" and I'll flip them together.)*
+*(All of these are one request away — just say "launch it" and I'll flip them together.)*
+
+## 🔴 Testimonials — before sharing the link widely
+
+- [ ] **Connect the form backend.** Deploy the Google Sheet script
+      (`testimonials/SETUP-google-sheet.md`) and send the URL so submissions are captured.
+- [ ] Add a **real photo of Tyler** to the testimonials page (drop it at
+      `/assets/img/web/tyler-portrait.jpg`).
 
 ---
 
