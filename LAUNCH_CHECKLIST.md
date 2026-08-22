@@ -22,10 +22,10 @@ Legend: 🔴 blocker · 🟡 should-do · 🟢 nice-to-have · ✅ done
 - [x] **Real contact email** — now `TylerWillisPro@gmail.com` sitewide, as clickable
       `mailto:` links.
 - [x] **Before/after slider removed** — the Work section is now a project carousel.
-- [ ] **Confirm the Instagram link.** The Instagram buttons (contact section + footer)
-      currently point at instagram.com generally — send the real handle and I'll wire it.
 - [ ] **Confirm the phone number.** Call/text links use the test number (503) 201-1336 —
       swap in Tyler's real number before sharing widely.
+- [ ] **St. Petersburg photo.** The Places card uses an interim coastal placeholder —
+      drop in a real St. Pete beach/waterfront-neighborhood photo when you have one.
 - [ ] **Name check on "The Spinosa House."** Every other project is "The ___ House"; I
       named Spinosa to match — confirm that's what it's actually called.
 - [ ] **St. Petersburg photography.** The "St. Petersburg, Florida" card in the *Places*

@@ -789,9 +789,11 @@ a { color: inherit; text-decoration: none; }
   background: var(--olive-deep); scrollbar-width: none;
 }
 .caro::-webkit-scrollbar { display: none; }
-.caro .slide { flex: 0 0 100%; scroll-snap-align: center; aspect-ratio: 3 / 2; }
+/* Height is capped to the viewport so the whole Work section fits on short
+   screens (e.g. Surface Pro) without the carousel running past the fold. */
+.caro .slide { flex: 0 0 100%; scroll-snap-align: center; height: clamp(240px, 52vh, 560px); }
 .caro .slide img { width: 100%; height: 100%; object-fit: cover; display: block; cursor: zoom-in; }
-@media (max-width: 640px) { .caro .slide { aspect-ratio: 4 / 3; } }
+@media (max-width: 640px) { .caro .slide { height: clamp(220px, 46vh, 420px); } }
 
 .caro-arrow {
   position: absolute; top: 50%; transform: translateY(-50%);
@@ -859,3 +861,41 @@ a { color: inherit; text-decoration: none; }
 .c-method .c-label { display: flex; flex-direction: column; line-height: 1.2; font-family: var(--sans); text-align: left; }
 .c-method .c-label { font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(245, 241, 234, 0.6); }
 .c-method .c-label b { font-size: 0.95rem; letter-spacing: 0.01em; text-transform: none; color: var(--cream); font-weight: 500; margin-top: 0.15rem; }
+
+/* ============ St. Petersburg coastal placeholder (Places) ============ */
+/* Interim treatment until a real St. Pete photo is supplied. */
+.place-coast {
+  aspect-ratio: 5 / 4;
+  cursor: default;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  background:
+    linear-gradient(180deg,
+      #dfe7e6 0%,
+      #bcd2d3 38%,
+      #7fa9ab 46%,
+      #5f8f93 60%,
+      #6f8f86 61%,
+      #d9c8a6 61.4%,
+      #e7d9bb 100%);
+}
+.place-coast::after {
+  /* faint sun low on the horizon */
+  content: "";
+  position: absolute;
+  left: 22%; top: 34%;
+  width: 34%; aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,247,232,0.85) 0%, rgba(255,247,232,0) 68%);
+}
+.place-coast-cap {
+  position: relative;
+  margin: 1rem 1.1rem;
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(33, 30, 25, 0.55);
+}
