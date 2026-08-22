@@ -82,7 +82,7 @@
     <div class="hero-content">
       <p class="kicker light">Residential design &amp; development</p>
       <h1>Homes,<br><em>reconsidered.</em></h1>
-      <p class="hero-sub">We buy houses other people pass on, in Portland and St.&nbsp;Petersburg, and turn them into homes worth living in.</p>
+      <p class="hero-sub">We take on older houses in Portland and St.&nbsp;Petersburg and turn them into homes worth living in.</p>
     </div>
     <div class="hero-foot">
       <span>Portland, OR&nbsp;&nbsp;·&nbsp;&nbsp;St. Petersburg, FL</span>
@@ -113,7 +113,7 @@
     <div class="work-head reveal">
       <p class="kicker">Selected work</p>
       <h2 class="work-title">Recent homes.</h2>
-      <p class="work-intro body-copy">A few of the houses we’ve taken down to the studs and put back together. Pick one to look through.</p>
+      <p class="work-intro body-copy">A handful of recent projects. Pick one to look through.</p>
     </div>
 
     <div class="projects" id="projects">
@@ -127,20 +127,27 @@
       </div>
 
       <div class="proj-stage">
-        <div class="caro" id="caro" tabindex="0" aria-label="Project photos"></div>
-        <button class="caro-arrow prev" id="caroPrev" aria-label="Previous photo" type="button">‹</button>
-        <button class="caro-arrow next" id="caroNext" aria-label="Next photo" type="button">›</button>
-        <button class="caro-expand" id="caroExpand" aria-label="View full screen" type="button">⤢</button>
-        <button class="caro-close" id="caroClose" aria-label="Close full screen" type="button">×</button>
+        <div class="film" id="film" tabindex="0" aria-label="Project photos"></div>
+        <button class="film-arrow prev" id="filmPrev" aria-label="Scroll left" type="button">‹</button>
+        <button class="film-arrow next" id="filmNext" aria-label="Scroll right" type="button">›</button>
         <div class="caro-meta">
           <span class="proj-name" id="projName">The Alfred House</span>
-          <span class="caro-count" id="caroCount">1 / 9</span>
+          <span class="caro-count" id="caroCount">9 photos</span>
         </div>
       </div>
     </div>
 
     <p class="work-foot reveal">We photograph new projects as they finish. <a href="#contact">Ask to see the rest&nbsp;→</a></p>
   </section>
+
+  <!-- Fullscreen single-photo viewer (for the filmstrip) -->
+  <div class="proj-light" id="projLight" aria-hidden="true" role="dialog" aria-label="Photo viewer">
+    <button class="pl-btn pl-close" id="plClose" aria-label="Close" type="button">×</button>
+    <button class="pl-btn pl-prev" id="plPrev" aria-label="Previous photo" type="button">‹</button>
+    <img class="pl-img" id="plImg" alt="">
+    <button class="pl-btn pl-next" id="plNext" aria-label="Next photo" type="button">›</button>
+    <span class="pl-count" id="plCount"></span>
+  </div>
 
   <!-- ============ APPROACH ============ -->
   <section class="approach" id="approach">
@@ -188,13 +195,13 @@
         </div>
       </article>
       <article class="place reveal delay-1">
-        <!-- St. Petersburg placeholder — swap in a real St. Pete coastal/neighborhood photo when available. -->
-        <figure class="place-fig place-coast" aria-label="St. Petersburg, Florida — imagery to come" role="img">
-          <span class="place-coast-cap">On the Gulf</span>
+        <!-- St. Petersburg — framed placeholder until the first project is photographed. -->
+        <figure class="place-fig place-soon" aria-label="St. Petersburg — first project in progress" role="img">
+          <span class="place-soon-cap">First project<br>in progress</span>
         </figure>
         <div class="place-body">
           <h3>St. Petersburg, <em>Florida</em></h3>
-          <p class="place-tag">Where we’re headed next&nbsp;&nbsp;<span class="coords">27.77°N&nbsp;82.64°W</span></p>
+          <p class="place-tag">First project underway&nbsp;&nbsp;<span class="coords">27.77°N&nbsp;82.64°W</span></p>
           <p>Warm light, sturdy old bungalows, and waterfront neighborhoods worth taking seriously. We’re bringing the same approach to the Gulf Coast.</p>
         </div>
       </article>
@@ -233,9 +240,33 @@
       <div class="about-copy reveal delay-1">
         <p class="kicker">Principal</p>
         <h2 class="section-title">Tyler&nbsp;Willis</h2>
-        <p class="body-copy">Tyler treats every house like a design project, not a quick flip. He has a clear point of view and no patience for the safe, beige version of a renovation. He started the company in Portland and is expanding it to St.&nbsp;Petersburg.</p>
+        <p class="body-copy">Tyler treats every house like a design project, not a quick flip. He has a clear point of view and no patience for the safe, beige version of a renovation. He got his start in Portland, and he’s now moving to St.&nbsp;Petersburg to bring the same care and craft to homes there.</p>
       </div>
     </div>
+  </section>
+
+  <!-- ============ TESTIMONIALS ============ -->
+  <!-- PLACEHOLDER testimonials — swap these out for real ones collected from /testimonials/. -->
+  <section class="voices" id="voices">
+    <div class="voices-head reveal">
+      <p class="kicker">Kind words</p>
+      <h2 class="section-title">What it’s like to work with Tyler.</h2>
+    </div>
+    <div class="voices-grid">
+      <figure class="voice reveal">
+        <blockquote>“We talked to a few people about redoing our place, and Tyler was the only one with an actual plan before he gave us a number. It came out better than what we had pictured.”</blockquote>
+        <figcaption><span class="v-name">Placeholder</span><span class="v-role">Homeowner · Lake Oswego</span></figcaption>
+      </figure>
+      <figure class="voice reveal delay-1">
+        <blockquote>“I’ve put money into a few of his projects now. The budgets hold, the updates come on time, and I’m not left chasing anyone for answers. That’s rarer than it should be.”</blockquote>
+        <figcaption><span class="v-name">Placeholder</span><span class="v-role">Capital partner</span></figcaption>
+      </figure>
+      <figure class="voice reveal delay-2">
+        <blockquote>“He notices the things most people skip — where a seam lands, how a door swings. You can see it in the finished house.”</blockquote>
+        <figcaption><span class="v-name">Placeholder</span><span class="v-role">Trade partner · Portland</span></figcaption>
+      </figure>
+    </div>
+    <p class="voices-foot reveal">Worked with Tyler? <a href="/testimonials/">Share your experience&nbsp;→</a></p>
   </section>
 
   <!-- ============ CONTACT ============ -->
@@ -292,33 +323,35 @@
 
   var wrap = document.getElementById('projects');
   if (!wrap) return;
-  var caro    = document.getElementById('caro');
+  var film    = document.getElementById('film');
   var countEl = document.getElementById('caroCount');
   var nameEl  = document.getElementById('projName');
   var tabs    = [].slice.call(wrap.querySelectorAll('.proj-tab'));
   var current = 'alfred';
 
+  // ---- filmstrip: natural-aspect photos at a fixed height, scroll horizontally ----
   function build(id) {
     current = id;
     var p = projects[id];
-    caro.innerHTML = '';
+    film.innerHTML = '';
     p.photos.forEach(function (file, i) {
-      var slide = document.createElement('div');
-      slide.className = 'slide';
+      var fig = document.createElement('button');
+      fig.className = 'fslide';
+      fig.type = 'button';
+      fig.setAttribute('aria-label', 'View ' + p.name + ', photo ' + (i + 1));
       var img = document.createElement('img');
       img.src = BASE + file;
-      img.alt = p.name + ' — photograph ' + (i + 1);
-      img.loading = i < 2 ? 'eager' : 'lazy';
+      img.alt = p.name + ', photo ' + (i + 1);
+      img.loading = i < 3 ? 'eager' : 'lazy';
       img.decoding = 'async';
-      img.addEventListener('click', function () {
-        if (!wrap.classList.contains('is-fullscreen')) setFS(true);
-      });
-      slide.appendChild(img);
-      caro.appendChild(slide);
+      fig.appendChild(img);
+      fig.addEventListener('click', function () { openLight(id, i); });
+      film.appendChild(fig);
     });
     nameEl.textContent = p.name;
-    caro.scrollLeft = 0;
-    updateCount();
+    var n = p.photos.length;
+    countEl.textContent = n + (n === 1 ? ' photo' : ' photos');
+    film.scrollLeft = 0;
     tabs.forEach(function (t) {
       var on = t.getAttribute('data-proj') === id;
       t.classList.toggle('is-active', on);
@@ -326,51 +359,54 @@
     });
   }
 
-  function slideW() {
-    var s = caro.querySelector('.slide');
-    return s ? s.getBoundingClientRect().width : caro.clientWidth || 1;
-  }
-  function index() { return Math.max(0, Math.round(caro.scrollLeft / slideW())); }
-  function updateCount() {
-    var n = projects[current].photos.length;
-    countEl.textContent = Math.min(n, index() + 1) + ' / ' + n;
-  }
-  function go(dir) { caro.scrollBy({ left: dir * slideW(), behavior: 'smooth' }); }
-
-  document.getElementById('caroPrev').addEventListener('click', function () { go(-1); });
-  document.getElementById('caroNext').addEventListener('click', function () { go(1); });
-
-  var t;
-  caro.addEventListener('scroll', function () { clearTimeout(t); t = setTimeout(updateCount, 60); }, { passive: true });
-  caro.addEventListener('keydown', function (e) {
-    if (e.key === 'ArrowLeft')  { go(-1); e.preventDefault(); }
-    if (e.key === 'ArrowRight') { go(1);  e.preventDefault(); }
+  function scrollFilm(dir) { film.scrollBy({ left: dir * Math.max(240, film.clientWidth * 0.8), behavior: 'smooth' }); }
+  document.getElementById('filmPrev').addEventListener('click', function () { scrollFilm(-1); });
+  document.getElementById('filmNext').addEventListener('click', function () { scrollFilm(1); });
+  film.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowLeft')  { scrollFilm(-1); e.preventDefault(); }
+    if (e.key === 'ArrowRight') { scrollFilm(1);  e.preventDefault(); }
   });
-
   tabs.forEach(function (tb) { tb.addEventListener('click', function () { build(tb.getAttribute('data-proj')); }); });
 
-  // fullscreen — same carousel, expanded; preserve the current photo across the resize
-  function setFS(on) {
-    var idx = index();
-    wrap.classList.toggle('is-fullscreen', on);
-    document.body.style.overflow = on ? 'hidden' : '';
-    requestAnimationFrame(function () { caro.scrollLeft = idx * slideW(); updateCount(); });
-  }
-  document.getElementById('caroExpand').addEventListener('click', function () { setFS(true); });
-  document.getElementById('caroClose').addEventListener('click', function () { setFS(false); });
-  document.addEventListener('keydown', function (e) {
-    if (!wrap.classList.contains('is-fullscreen')) return;
-    if (e.key === 'Escape')     setFS(false);
-    if (e.key === 'ArrowLeft')  go(-1);
-    if (e.key === 'ArrowRight') go(1);
-  });
+  // ---- fullscreen single-photo viewer ----
+  var light   = document.getElementById('projLight');
+  var lightImg = document.getElementById('plImg');
+  var plCount = document.getElementById('plCount');
+  var lightProj = null, lightIdx = 0;
 
-  var rt;
-  window.addEventListener('resize', function () {
-    clearTimeout(rt);
-    var idx = index();
-    rt = setTimeout(function () { caro.scrollLeft = idx * slideW(); updateCount(); }, 120);
-  }, { passive: true });
+  function renderLight() {
+    var p = projects[lightProj];
+    lightImg.src = BASE + p.photos[lightIdx];
+    lightImg.alt = p.name + ', photo ' + (lightIdx + 1);
+    plCount.textContent = p.name + '  ·  ' + (lightIdx + 1) + ' / ' + p.photos.length;
+  }
+  function openLight(id, i) {
+    lightProj = id; lightIdx = i;
+    renderLight();
+    light.classList.add('open');
+    light.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLight() {
+    light.classList.remove('open');
+    light.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+  function step(dir) {
+    var n = projects[lightProj].photos.length;
+    lightIdx = (lightIdx + dir + n) % n;
+    renderLight();
+  }
+  document.getElementById('plClose').addEventListener('click', closeLight);
+  document.getElementById('plPrev').addEventListener('click', function (e) { e.stopPropagation(); step(-1); });
+  document.getElementById('plNext').addEventListener('click', function (e) { e.stopPropagation(); step(1); });
+  light.addEventListener('click', function (e) { if (e.target === light) closeLight(); });
+  document.addEventListener('keydown', function (e) {
+    if (!light.classList.contains('open')) return;
+    if (e.key === 'Escape')     closeLight();
+    if (e.key === 'ArrowLeft')  step(-1);
+    if (e.key === 'ArrowRight') step(1);
+  });
 
   build('alfred');
 })();
