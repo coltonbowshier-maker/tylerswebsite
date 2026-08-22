@@ -766,3 +766,96 @@ a { color: inherit; text-decoration: none; }
 @media (max-width: 480px) {
   .wip-bar { font-size: 0.64rem; letter-spacing: 0.06em; }
 }
+
+/* ============ Projects carousel (Work redesign) ============ */
+.projects { margin-top: clamp(1.4rem, 3vw, 2.4rem); }
+.proj-tabs {
+  display: flex; flex-wrap: wrap; gap: 0.5rem 0.55rem;
+  margin-bottom: 1.3rem;
+}
+.proj-tab {
+  font-family: var(--sans); font-size: 0.8rem; font-weight: 600; letter-spacing: 0.01em;
+  color: var(--ink-2); background: transparent; border: 1px solid var(--line);
+  padding: 0.55rem 1rem; border-radius: 999px; cursor: pointer; white-space: nowrap;
+  transition: background 0.25s var(--ease), color 0.25s var(--ease), border-color 0.25s var(--ease);
+}
+.proj-tab:hover { color: var(--ink); border-color: var(--ink-2); }
+.proj-tab.is-active { background: var(--ink); color: var(--cream); border-color: var(--ink); }
+
+.proj-stage { position: relative; }
+.caro {
+  display: flex; overflow-x: auto; scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch; border-radius: 14px;
+  background: var(--olive-deep); scrollbar-width: none;
+}
+.caro::-webkit-scrollbar { display: none; }
+.caro .slide { flex: 0 0 100%; scroll-snap-align: center; aspect-ratio: 3 / 2; }
+.caro .slide img { width: 100%; height: 100%; object-fit: cover; display: block; cursor: zoom-in; }
+@media (max-width: 640px) { .caro .slide { aspect-ratio: 4 / 3; } }
+
+.caro-arrow {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  width: 44px; height: 44px; border-radius: 50%; border: none; cursor: pointer;
+  background: rgba(251, 249, 244, 0.9); color: var(--ink);
+  font-size: 1.6rem; line-height: 1; display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 16px rgba(33, 30, 25, 0.28); transition: background 0.2s, transform 0.2s;
+}
+.caro-arrow:hover { background: #fff; }
+.caro-arrow:active { transform: translateY(-50%) scale(0.94); }
+.caro-arrow.prev { left: 12px; }
+.caro-arrow.next { right: 12px; }
+@media (max-width: 640px) { .caro-arrow { width: 38px; height: 38px; font-size: 1.3rem; } }
+
+.caro-expand {
+  position: absolute; top: 12px; right: 12px; width: 38px; height: 38px; border-radius: 50%;
+  border: none; cursor: pointer; background: rgba(33, 30, 25, 0.5); color: var(--cream);
+  font-size: 1.05rem; display: flex; align-items: center; justify-content: center; transition: background 0.2s;
+}
+.caro-expand:hover { background: rgba(33, 30, 25, 0.78); }
+.caro-close { display: none; }
+
+.caro-meta { display: flex; justify-content: space-between; align-items: baseline; margin-top: 0.9rem; gap: 1rem; }
+.proj-name { font-family: var(--serif); font-size: 1.15rem; color: var(--ink); }
+.caro-count { font-family: var(--sans); font-size: 0.8rem; letter-spacing: 0.08em; color: var(--ink-2); font-variant-numeric: tabular-nums; }
+
+/* fullscreen view — same carousel, expanded */
+.projects.is-fullscreen .proj-stage {
+  position: fixed; inset: 0; z-index: 200; background: #1a1712;
+  display: flex; flex-direction: column; justify-content: center; padding: 0; margin: 0;
+}
+.projects.is-fullscreen .caro { border-radius: 0; background: transparent; }
+.projects.is-fullscreen .caro .slide {
+  aspect-ratio: auto; height: 100vh; height: 100dvh;
+  display: flex; align-items: center; justify-content: center;
+}
+.projects.is-fullscreen .caro .slide img { width: 100%; height: 100%; object-fit: contain; cursor: default; }
+.projects.is-fullscreen .caro-expand { display: none; }
+.projects.is-fullscreen .caro-close {
+  display: flex; position: fixed; top: 16px; right: 16px; width: 46px; height: 46px; border-radius: 50%;
+  border: none; cursor: pointer; background: rgba(245, 241, 234, 0.14); color: var(--cream);
+  font-size: 1.7rem; align-items: center; justify-content: center; z-index: 210; transition: background 0.2s;
+}
+.projects.is-fullscreen .caro-close:hover { background: rgba(245, 241, 234, 0.28); }
+.projects.is-fullscreen .caro-arrow { z-index: 210; }
+.projects.is-fullscreen .caro-meta {
+  position: fixed; bottom: 20px; left: 0; right: 0; margin: 0; justify-content: center; gap: 1.2rem; z-index: 210;
+}
+.projects.is-fullscreen .proj-name { color: var(--cream); }
+.projects.is-fullscreen .caro-count { color: rgba(245, 241, 234, 0.7); }
+
+/* ============ Contact methods (Email / Call / Instagram) ============ */
+.contact-methods {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 0.8rem 1rem;
+  margin: 1.6rem 0 0.4rem;
+}
+.c-method {
+  display: inline-flex; align-items: center; gap: 0.65rem;
+  padding: 0.7rem 1.15rem; border-radius: 999px;
+  border: 1px solid rgba(245, 241, 234, 0.28); color: var(--cream); text-decoration: none;
+  transition: background 0.25s var(--ease), border-color 0.25s;
+}
+.c-method:hover { background: rgba(245, 241, 234, 0.1); border-color: rgba(245, 241, 234, 0.55); }
+.c-method svg { width: 20px; height: 20px; flex: none; opacity: 0.9; }
+.c-method .c-label { display: flex; flex-direction: column; line-height: 1.2; font-family: var(--sans); text-align: left; }
+.c-method .c-label { font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(245, 241, 234, 0.6); }
+.c-method .c-label b { font-size: 0.95rem; letter-spacing: 0.01em; text-transform: none; color: var(--cream); font-weight: 500; margin-top: 0.15rem; }

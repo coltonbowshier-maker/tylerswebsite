@@ -19,13 +19,15 @@ Legend: 🔴 blocker · 🟡 should-do · 🟢 nice-to-have · ✅ done
 
 ## 🔴 Must do before launch (content & correctness)
 
-- [ ] **Real contact email.** Placeholder `hello@tylerwillis.homes` appears in 4 spots
-      (`index.html` lines ~269 & ~283; `b/index.html` lines ~254 & ~271). Replace with
-      the real address (e.g. `tyler@tylerwillispro.com`) everywhere.
-- [ ] **Before/after "before" photo.** The slider currently shows the *after* image with
-      a fake-aged CSS filter as a stand-in (`ba-placeholder` class + `.ba-before img` in
-      `index.html` ~line 100). Swap in the real original-condition photo, then remove the
-      `ba-placeholder` class so the filter turns off.
+- [x] **Real contact email** — now `TylerWillisPro@gmail.com` sitewide, as clickable
+      `mailto:` links.
+- [x] **Before/after slider removed** — the Work section is now a project carousel.
+- [ ] **Confirm the Instagram link.** The Instagram buttons (contact section + footer)
+      currently point at instagram.com generally — send the real handle and I'll wire it.
+- [ ] **Confirm the phone number.** Call/text links use the test number (503) 201-1336 —
+      swap in Tyler's real number before sharing widely.
+- [ ] **Name check on "The Spinosa House."** Every other project is "The ___ House"; I
+      named Spinosa to match — confirm that's what it's actually called.
 - [ ] **St. Petersburg photography.** The "St. Petersburg, Florida" card in the *Places*
       section uses a Portland/Lake Oswego patio photo as a stand-in. Swap in real Florida
       imagery when available.
