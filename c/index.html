@@ -74,7 +74,7 @@
       <div class="hero-rule">
         <span>Portland, OR</span>
         <span>St. Petersburg, FL</span>
-        <span>Est. 2014</span>
+        <span>Est. 2022</span>
       </div>
     </div>
   </section>
@@ -100,7 +100,6 @@
         <p class="label">Selected work</p>
         <h2 class="display" style="margin-top:.7rem;font-size:clamp(1.9rem,3.6vw,3rem);">Recent homes.</h2>
       </div>
-      <p class="proj-sub">Six projects</p>
     </div>
     <div class="proj-grid" id="projGrid"></div>
   </section>
@@ -145,7 +144,7 @@
           <img class="place-shot" src="/assets/projects/BristolHouse_04_websize.jpg" alt="Renovated home exterior, Portland" loading="lazy">
           <div class="place-body">
             <h3>Portland, Oregon</h3>
-            <p class="label">Where we started · 45.52°N 122.68°W</p>
+            <p class="label">Where we started</p>
             <p>Mid-century ranches and split-levels under the Douglas firs, most of them sitting on good bones and years of deferred maintenance. This is where we got our start.</p>
           </div>
         </article>
@@ -154,7 +153,7 @@
           <div class="place-soon" role="img" aria-label="St. Petersburg — first project in progress">First project<br>in progress</div>
           <div class="place-body">
             <h3>St. Petersburg, Florida</h3>
-            <p class="label">First project underway · 27.77°N 82.64°W</p>
+            <p class="label">First project underway</p>
             <p>Warm light, sturdy old bungalows, and waterfront neighborhoods worth taking seriously. We're bringing the same approach to the Gulf Coast.</p>
           </div>
         </article>
@@ -227,10 +226,37 @@
 (function () {
   document.documentElement.classList.add('js');
 
-  /* ---- nav state ---- */
+  var motionOK = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---- nav state + hero drift (one rAF-throttled scroll handler) ---- */
   var nav = document.getElementById('nav');
-  var onScroll = function () { nav.classList.toggle('scrolled', window.scrollY > 40); };
-  onScroll();
+  var heroImg = document.querySelector('.hero-img');
+  var hero = document.querySelector('.hero');
+  var ticking = false;
+
+  if (heroImg) {
+    // hand the image over to scroll once its intro animation has finished
+    heroImg.addEventListener('animationend', function () { heroImg.style.animation = 'none'; });
+  }
+
+  function frame() {
+    var y = window.scrollY;
+    nav.classList.toggle('scrolled', y > 40);
+    if (motionOK && heroImg && hero) {
+      var h = hero.offsetHeight;
+      if (y < h * 1.2) {
+        // drifts at ~14% of scroll, capped well inside the image's 18% headroom
+        heroImg.style.transform = 'translate3d(0,' + (-Math.min(y * 0.14, h * 0.14)) + 'px,0)';
+      }
+    }
+    ticking = false;
+  }
+  function onScroll() {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(frame);
+  }
+  frame();
   window.addEventListener('scroll', onScroll, { passive: true });
 
   /* ---- scroll reveal ---- */

@@ -43,6 +43,20 @@ a { color: inherit; text-decoration: none; }
   color: var(--ink-2);
 }
 .label.light { color: rgba(255, 255, 255, 0.6); }
+.label::after {
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  height: 1px;
+  width: 0;
+  margin-left: 0.85rem;
+  background: currentColor;
+  opacity: 0.45;
+  transition: width 1s var(--ease) 0.15s;
+}
+.reveal.in .label::after,
+.label.reveal.in::after,
+.hero-inner .label::after { width: 2.4rem; }
 
 .display {
   font-weight: 400;
@@ -113,10 +127,11 @@ a { color: inherit; text-decoration: none; }
 /* ---------- hero ---------- */
 .hero { position: relative; height: 100svh; min-height: 520px; overflow: hidden; }
 .hero-img {
-  position: absolute; inset: 0;
-  width: 100%; height: 100%;
-  object-fit: cover;
+  position: absolute; inset: 0 0 auto 0;
+  width: 100%; height: 118%;
+  object-fit: cover; object-position: center;
   animation: heroIn 2.4s var(--ease) both;
+  will-change: transform;
 }
 @keyframes heroIn { from { transform: scale(1.06); } to { transform: scale(1); } }
 .hero::after {
@@ -186,9 +201,11 @@ a { color: inherit; text-decoration: none; }
 .proj-shot img {
   width: 100%; height: clamp(230px, 34vw, 430px);
   object-fit: cover;
-  transition: transform 0.9s var(--ease);
+  transform: scale(1.05);
+  transition: transform 1.3s var(--ease);
 }
-.proj:hover .proj-shot img { transform: scale(1.04); }
+.proj.in .proj-shot img { transform: scale(1); }
+.proj.in:hover .proj-shot img { transform: scale(1.04); transition-duration: 0.9s; }
 .proj-shot::after {
   content: "";
   position: absolute; inset: 0;
@@ -325,4 +342,6 @@ html.js .reveal.in { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) {
   html.js .reveal { opacity: 1; transform: none; transition: none; }
   .hero-img, .hero-inner { animation: none; }
+  .proj-shot img, .proj.in .proj-shot img { transform: none; transition: none; }
+  .label::after { transition: none; }
 }
