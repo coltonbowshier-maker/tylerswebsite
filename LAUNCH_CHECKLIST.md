@@ -71,6 +71,14 @@ Legend: 🔴 blocker · 🟡 should-do · 🟢 nice-to-have · ✅ done
 - [ ] **Mobile pass** — test hero, nav, gallery, and the before/after touch-drag on a phone.
 - [ ] **Cross-browser** — Safari, Chrome, Firefox (backdrop-blur nav + slider behave differently).
 - [ ] **Verify every image loads**, including the full-size lightbox versions (`data-full`).
+- [ ] **Confirm project locations.** Design C shows "Portland, OR" under every
+      project card — assumed, since the practice started there. Correct any that
+      are elsewhere (`c/projects.js`, the `place` field).
+- [ ] **Design C reference check.** `/c/` was built without being able to load
+      nsbuilders.com (blocked by this environment's egress policy). Send
+      screenshots so the palette, type, and layout can be matched properly.
+- [ ] **Pick one design** (A / B / C), then delete the other two plus the
+      corner switcher.
 - [ ] **Decide the fate of the `/b` page** — it's an alternate layout, currently `noindex`.
       Finish it, link to it, or remove it before launch.
 
